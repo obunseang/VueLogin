@@ -29,7 +29,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
-                    <input v-model="pwd" class="form-control form-control-sm" placeholder="**********" type="password">
+                    <input v-model="pwd" class="form-control form-control-sm" placeholder="•••••••••" type="password">
                   </div>
                 </div>
                 <div v-if="error.length" class="pb-3 txterr">
@@ -44,7 +44,7 @@
             </div>
             <div class="p-3">
               <p class="small">
-                계정이 없으신가요? <a href="#" v-on:click="btnRegister" class="text-secondary link-secondary"><u>가입하기</u></a>
+                <span v-on:click="goHome" class="btn btn-sm"><i class="fa fa-home" aria-hidden="true"></i></span> 계정이 없으신가요? <a href="#" v-on:click="btnRegister" class="text-secondary link-secondary"><u>가입하기</u></a>
               </p>
             </div>
           </div>
@@ -85,6 +85,9 @@ export default {
     }
   },
   methods: {
+    goHome () {
+      this.$router.push({ name: 'home', path: '/' })
+    },
     btnLogin () {
       if (this.email.trim() === '') {
         this.$refs.email.classList.add('error')
@@ -93,6 +96,7 @@ export default {
         this.$refs.pwd.classList.add('error')
       }
       if (!this.checkEmail()) {
+        this.$refs.email.classList.add('error')
         return
       }
       if (this.email.trim() !== 'test@luxpmsoft.com' && this.pwd.trim() !== 'test1234!') {

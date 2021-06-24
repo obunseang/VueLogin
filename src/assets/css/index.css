@@ -69,3 +69,9 @@ border: 1px solid red
 .txterr{
 color:red !important
 }
+.txt-disable{
+color: rgb(180, 180, 180);
+}
+.green{
+color: green !important;
+}
