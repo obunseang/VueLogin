@@ -106,7 +106,7 @@
                   </div>
                   <div class="pr-5 pl-5 form-control-sm">
                     <button class="btn btn-primary btn-block">가입하기</button>
-                    <p class="small pt-3">
+                    <p class=" pt-3">
                       이미 계정이 있으신가요? <a href="#" v-on:click="btnLogin" class="text-secondary link-secondary"><u>로그인</u></a>
                     </p>
                   </div>
