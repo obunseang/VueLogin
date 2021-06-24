@@ -75,11 +75,13 @@ export default {
       if (this.email.trim() !== '') {
         this.$refs.email.classList.remove('error')
       }
+      this.error = ''
     },
     pwd () {
       if (this.pwd.trim() !== '') {
         this.$refs.pwd.classList.remove('error')
       }
+      this.error = ''
     }
   },
   methods: {
@@ -91,6 +93,10 @@ export default {
         this.$refs.pwd.classList.add('error')
       }
       if (!this.checkEmail()) {
+        return
+      }
+      if (this.email.trim() !== 'test@luxpmsoft.com' && this.pwd.trim() !== 'test1234!') {
+        this.error = 'Invalid user account!'
         return
       }
       localStorage.setItem('userLoggedIn', this.email)
@@ -105,8 +111,6 @@ export default {
       if (ret) this.error = ''
       else this.error = 'Invalid email address.'
       return ret
-    },
-    checkPwd () {
     }
   }
 }
