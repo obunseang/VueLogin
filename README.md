@@ -1,6 +1,6 @@
 # VueLogin
 
-> This is a sample Landing page containing Home, Login, and Registeration using VueJS framework.
+> This is a sample Landing page containing Home, Login, and Registration using VueJS framework.
 
 #Live preview URL: https://bs-vue.netlify.app/#/
 
