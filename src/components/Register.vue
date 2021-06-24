@@ -128,7 +128,8 @@ export default {
       dob: '',
       email: '',
       pwd: '',
-      pwdConfirm: ''
+      pwdConfirm: '',
+      validPwd: false
     }
   },
   watch: {
@@ -180,10 +181,10 @@ export default {
       if (this.email.trim() === '') {
         this.$refs.email.classList.add('error')
       }
-      if (this.pwd.trim() === '') {
+      if (this.pwd.trim() === '' || this.validPwd !== 4) {
         this.$refs.pwd.classList.add('error')
       }
-      if (this.pwdConfirm.trim() === '') {
+      if (this.pwdConfirm.trim() === '' || this.pwd.trim() !== this.pwdConfirm.trim()) {
         this.$refs.pwdConfirm.classList.add('error')
       }
       if (!this.checkEmail()) {
@@ -204,27 +205,32 @@ export default {
       const r2 = /[A-Z]/
       const r3 = /\d/
       const r4 = /[!@#$%^&*]/
-      console.log(pwd)
+      this.validPwd = 0
       if (r1.test(pwd)) {
         this.$refs.pwd1.classList.add('green')
+        this.validPwd = 1
       } else {
         this.$refs.pwd1.classList.remove('green')
       }
       if (r2.test(pwd)) {
         this.$refs.pwd2.classList.add('green')
+        this.validPwd = 2
       } else {
         this.$refs.pwd2.classList.remove('green')
       }
       if (r3.test(pwd)) {
         this.$refs.pwd3.classList.add('green')
+        this.validPwd = 3
       } else {
         this.$refs.pwd3.classList.remove('green')
       }
       if (r4.test(pwd)) {
         this.$refs.pwd4.classList.add('green')
+        this.validPwd = 4
       } else {
         this.$refs.pwd4.classList.remove('green')
       }
+      console.log(this.validPwd)
     }
   }
 }
